@@ -1,0 +1,73 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>welcome to index page</h1>
+    <div align="center">
+        <h2>add users</h2>
+        <form action="/insertRecord" method="post">
+            <tr>
+                <td>name :-</td>
+                <td><input type="text" name="name"></td>
+            </tr>
+            <tr></tr>
+            <td>phone :-</td>
+            <td><input type="number" name="phone"></td>
+            </tr>
+           <tr>
+            <td></td>
+            <td><input type="submit"></td>
+           </tr>
+
+        </form>
+        <h2>view users</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>srno</th>
+                    <th>name</th>
+                    <th>phone</th>
+                    <th>action</th>
+                </tr>
+
+            </thead>
+            <tbody>
+
+                <% all.map((user,i)=>{
+                    const {id,name,phone} = user
+                     %>
+
+                    <tr>
+                        <td>
+                            <%= ++i%>
+                        </td>
+                        <td>
+                            <%= name%>
+                        </td>
+
+
+
+                        <td>
+                            <%= phone%>
+                        </td>
+                        <td>
+                            <a href="/deletUser?deletId=<%= id%>"> Delet</a>
+                        </td>
+                       
+                    </tr>
+                    <% })%>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
+
+
+
